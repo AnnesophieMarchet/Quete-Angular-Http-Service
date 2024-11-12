@@ -1,0 +1,13 @@
+<h2>Articles Populaires</h2>
+<div class="main-container">
+  @for (article of articles$ | async; track $index) { @if (article.isPublished)
+  {
+  <app-article-thumbnail
+    [article]="article"
+    (notifyLike)="handleLike(article)"
+  ></app-article-thumbnail>
+  } } @empty {
+  <p>Aucun article publié pour le moment</p>
+
+  }
+</div>
